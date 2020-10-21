@@ -1,0 +1,165 @@
+DAY 3
+Review: 
+	- What are the different types in c#
+
+New Material:
+
+Collections: In memory storage of data
+	- Arrays, and there drawbacks 
+		- looping with regards to size
+		- memory inefficient 
+	- Other things about arrays 
+		- sixw is fixed 
+		- every element must have a value
+	- Generics: 
+		- Stacks<T>, Queues<T>, List<T>, Dictionary<T>, SortedList<T>
+		- you give and item and are returned an item of like type
+		- type safe, type of the item is mentioned
+		- memory efficient as they grow when items are add an 
+			shrink when items are removed
+	- Non-Generics: 
+		- you give an item and are returned an object
+		- Stack, Queue, ArrayList, Hashtable (key, value)
+		- Generics are a solution to the disadvantages in non-generics
+
+Interface Versions of the Collections that we can implements ourselves
+Iterator: 
+	- IEnumerable -> GetEnumerator
+		- IEnumerable<T>
+			- ICollection: allows you to Add(), Remove(), etc.. 
+				- IList<T>
+					- List<T>
+				- Stack<T> 
+				- Queue<T> 
+					- implemented by IList<T>
+				- IDictionary<TKey, TValue>
+					- Dictionary<TKey, TValue>
+
+The 4 OOP Pillars: "A PIE"
+	- Abstraction: 
+		- what the end users are getting to see
+		- Interfaces
+			- doesnt have constructors
+			- contains definitions for a group of related functionalities that a non-abstract class or a struct must implement
+			- may define static methods 
+			- <classToImplementInterface>:<Interface> 
+		- Abstract classes
+			- can have constructors
+			- denoted useing the abstract keyword
+			- may have fields, may have abstract and non abstract methods
+		- Abstract classes are used to impose/create a hierarchy whilst interfaces are used as a contract to impose functionality/behavior
+	- Polymorphism
+		- literally means 'many forms'
+		- ability to sub different implementation details for different needs
+		- ability of an object to take on many forms 
+	- Inheritance
+		- <childClass>:<parentClass>       duhhhh
+		- establishes a is-a relationship 
+		- basing an object or class upon another object or class
+		- in c# the constructors are inherited from parent to child
+		- prompotes code reuseability
+		- super from java is replaced with base in c#
+		- composition:
+			- has-a relationship
+			- ex. an order has multi line orders and cannot function independently 
+			- parts that make a whole
+		- Aggregation:
+			- again a has-a relationship
+			- ex. a department has multi employees but can function independently
+			- parts that are grouped together
+		- Association 
+			- uses-a relationship
+			- ex. a computer uses a keyborard
+	- Encapsulation 
+		- "putting all your eggs in a basket"
+		- treat related data/behavior as a single unit/capsule
+		- data hiding: using access modifiers
+		- wrapping: grouping logic in classes, assemblies, and namespaces)
+		- "wrapping" focuses on encapsulationg the complex data in order to present a simpler view for the user.
+			On the other hand, "data hiding" focuses on restricting the use of data, intending to assure the data security.
+		- getting and setter methods 
+		- not having public fields (optional but good practice)
+
+Q: Are the static members of a class inherited?
+	NO - they belong to the class but they can be referenced because they are static 
+
+Exception Handling in .Net Core:
+	- handled during runtime 
+	- what is the difference in errors and exceptions (need to understand this)
+	- when you are writting an exception you want to put the most specific exception first and then default plain exceptions 
+		otherwize you will get an exception 
+	- you can have any number of catch blocks 
+	- a finally block will run whether or not the try/catch block run (you can only have one finally block)
+	- you can use the "throw" keyword 
+		- throw v. throw <exceptionObject> 
+			- throw will show a stacktrace and throw <exceptionObject> will only show the most recent exception
+	- if you want to create your own exception you have to extend the exceptions class 
+		- <customException>:Exception
+		- when do you wants to use a custom exception?
+			- in the HerosApp you create a hero and the hero has no super powers 
+				- you could create a custom exception here to throw when a super has no powers
+	- typically you want to log the exceptions when they are thrown 
+		- a bad way to log exceptions is to log them into the console 
+		- a good way is to log exceptions is into a text file or a database
+
+Application Monitoring:
+	- a way to highlight certain events that come up during runtime 
+		- good for debugging, finding places of failure 
+	- during development you can add breakpoints 
+		- at breaks you can check the state of variables in scope, go to the next breakpoint, skip a function, skip into a function, 
+			step oot of the origional line that called the function
+	- Logging 
+		- useful in debugging 
+		- events that could warrent a record 
+		- logging levels : arranged by sevarity 
+			- Verbose: anything and everything you might want to know about a running block of code
+			- debug: internal systems hat arent necessarily seen from the outside
+			- Information: Service is degraded ot endangered
+			- error: functionality is unavailable, invariants are broken, or data is lost
+			- Fatal: very severe events that will lead the application to abort
+			- resources avaible at the end of the slides on revature pro website with more information on the above
+		- where are the logs?
+			- files, databses, console, etcetera (logging software) -> really up to the developer or company
+		- why are there logging levels
+			- to separate what needs to be taken care of with more ergency 
+	- Tracing 
+		- seeing what the user is up too that made the program react in a negative way 
+	- XML Documentation: have more an of an over view of what the methods are doing 
+	- Again more resources at the end of the power point on rev pro for debugging 
+	- serilog will be helpul in P_0 (or Nlog)
+
+Regular Expressions:
+	- used to regulate input 
+		- enforce them for email input, long/lat format, etc..
+	- used mainly in pattern matching
+	- more resources at the end of the slide on regular expressions 
+	-regex 
+		- email validation : characters to use not in any certian order
+			- \w+    is any amount of word characters
+			- $      end character 
+			- \.     a dot 
+			- \@     a symbol
+			- (com|..)   website domains
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
