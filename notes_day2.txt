@@ -1,0 +1,110 @@
+DAY 2
+Review:
+
+	REMEMBER: 
+		- dotnet new console -o 'projectName' -f netcoreapp3.1
+		- add, commit, push
+
+	dotnet command line interface (cli) 
+		- dotnet new console 
+	how to complie the code in vscode via terminal 
+		- dotnet build 
+	how to run and compile code in vscode via terminal 
+		- dotnet run 
+
+	what are the contents of .net SDK 
+		- clr (common language runtime)
+		- cli
+		- standard libs 
+	
+	Github review 
+		- git bash in files allows you to be able to perform 
+	  git commands quickly 
+
+	hints: 
+		- need to be comfortable with git
+		- start with the big picture then work your way down if you are confused 
+
+New Material:
+
+	sdk -> .net core
+		- as of right now there are three languages supported 
+			- c#, f#, VB
+			- these all have their language specific compiliers (csc, fsc, vbc) <= dotnet build compiles these languages into common language infrustructor
+	commam language infrustructor(CLI or MSIL, miscorsoft intermediate language) not the same as command line interface(also CLI) 
+		- this is where you see the code passed to Runtime (also known as CLR)
+		- now it can be excuted 
+		- CTS (common language system) 
+		- CLS (common language specification) 
+			ex. if you are using more than one langauge and one is oop they all have to be oop
+			ex. array indexing starts at 0 for all languages being used
+	what is a namespace
+		- logically arrange the types(classes) 
+		- to avoid naming conflicts 
+	what is assembly language
+		- it is a physical separation of types
+		-forms: exe (main, function to start or dll, dynamic linked lib)
+		- final deployable units, 
+	c# ->	CTS 	->	VB
+	int	System.Int32 	integer 
+	short	System.Int16	foo
+	
+	Things to know about c# 
+		- typeSafe language 
+		- Case sensitive 
+		- multiple inheritance is not supported in c#
+
+	How is an application created: 1 tier application 
+		- UI (user interface) 
+		- BL (business logic, the code that you write) 
+		- DB (database)
+		- all of them are in one location, on one machine  
+	How is an application created: 2 tier application 
+		- UI with the BL embeded (client)
+		- in another location BL and the DB enbeded in a server (server)
+	How is an application created: 3 tier application 
+		- UI with the BL enbeded (client) 
+		- server with BL 
+		- database (AWS, cloud) 
+	How is an application created: n-tier 
+		=> Microservices (covered a little in day 1) 
+
+	What is a .Net soultion?
+		- when you have n projects all related to each other they go into the .net soultion 
+	
+	HerosApp soultion: {mkdir <sln name>, dotnet new sln} make sure you have the soultion dir ready 
+		- UI -> Console -> {dotnet new console -o <projectName>}, {dotnet sln <name of the soultion> add <reference to the console project> }
+		- BL -> class libaray 
+		- DL (data layer) -> class libaray 
+
+	More on C#:
+		- namespace 
+			- Types 
+				- members (methods, variables, properities)
+		- Types (Classes, Enums (days of the weeks, months), Structs, Interface, Delegates)
+			- value types -> which has the direct value (ex. int a = 2), stored in a stack 
+				- struct, enums
+				- Predefined value types (int, long, short, byte, DateTime, char)
+			- reference types -> it store the reference to that value, value is store in heap, expensive retrieval process 
+				- classes, interface, delegates
+				- Predefined reference types (string, arrays, collections, etc..) 
+		- Access Modifers: they change the behaviors and scope of the types 
+			- scope modifiers : Private, public, internal, protected 
+			- HOMEWORK: look into protected internal, private protected 
+		- inorder to extend a class in c# you put <CurrentClass>:<Class2BExtended>
+		- Properities:
+			- like getters and setters in java. microsoft calls them as smart feilds to encapsulate the value of the private variables 
+		- Collections: In memory storage of data
+			- Arrays: 1D, 2D, jagged array, multi-dimensional 
+				- jagged arrays: if you only specify the number of rows that doesnt mean you has to have the 
+					same numer of columns for each row aka a jagged looking structure
+			- Generics: Stack, Queues, List, Dictionary 
+
+
+
+
+
+
+
+
+	
