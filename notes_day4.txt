@@ -1,0 +1,185 @@
+DAY 4
+Review:
+	- nothing 
+
+New Material 
+
+Unit Testing
+	- testing small units of your code
+	- helpful to check if code is working without having to repeat actions 
+	- unit testing framework we will be using is Xunit
+	- parts of a unit test 
+		- Arrange 
+		- Act 
+		- Assert
+	- quality development 
+	- test driven development (TDD) 
+		- write tests that fail
+		- implement code that makes the test past
+	- dotnet new xunit -o <nameOfTestClass>
+
+Access Modifiers 
+	- Scope Modifiers: private, public, internal, protected, protected internal, private protected
+		- using scope modifiers achives encapsulation (OOP PILLAR) 
+	- modifiers: 
+		- abstracts
+			- means the thing being modified has a missing or incomplete implementation 
+			- intended to only be the base case of other classes
+			- NOT instantiated on their own 
+			- classes, methods, properities, indexers, and events can be abstract
+			- members that are abstract must be implements by non-abstract classes that are derived from the abstract class
+		- virtual
+			- allows for the properities to be overridden in the child class 
+		- sealed
+			- any class if you dont want it to be extened or inherited then you would use te sealed modifier
+			- you can instantiated a sealed classes
+		- static
+			- CLASSES:
+			- implicity sealed so cannot be inheritered 
+			- cannot be instantiated or extended 
+			- if a class is static, all its members must be static 
+			- essentially just a container for static members 
+			- MEMBERS:
+			- cannot use the keyword this to reference static method or property accessors
+				- because it refers to the object of the class
+			- belongs to the class type itself rather than the specifi object instance
+			- a static member is refered through the type name 
+		- Const
+			- cont field and locals arent variables and my not be modified 
+			- can be numbers, bools, string, or null
+		- readonly 
+			- the init can only occur as part of the declaration or ina constructor in the same class
+			- like const, but init can be defered unil its constructor finishes 
+		- override
+			- requied to extend or modify the abstract or virtual impleentation of an inherited method, property,indexer, or event
+		- partial classes, struct, interfaces
+			- a way to manage your code easier 
+			- you can spilt the definition of a class, struct, interface or a method over two or more source files, all parts are combined in compilation 
+
+Garbage Collection:
+	- part of the CLR 
+	- manages the allocation and release of memory 
+	- you cannot decided how and where memory is allocated in c#
+	- viritual memory have three states
+		- Free
+			- unallocated
+			- available 
+		- Reserved
+			- must be commited inorder to store data
+			- available 
+			- unused for other processes
+		- Commited 
+			- assigned to physical storage 
+	- benifits 
+		- no memory leaks
+	- managed code 
+		- mangaed by CLR
+		- CLR pases it to the JIT (just in time) complier
+	- unmanaged code
+		- code that runs outside the CLR
+	- IDisposable is an interface you can implemet to handle unmanage code and then mark it for the garbage collection
+	- using block 
+		- you can use using instead of calling IDisposable.Dispose() youself
+
+Serialization
+	- the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, ot a file
+	- save the state of the object for later recreation 
+	- Deserialization 
+		- the process of unoacking serialized objects
+	- discussion 
+		- why serialize?
+			- you have an object but you want it to carring on past the program so you create a connection to write the object to in bytes
+		- what are some use cases?
+			- customer list, inventory, anything and everything that you want to store - serialization (aside from databases)
+		- forms of serialized data 
+			- Json, XML
+
+File/IO 
+	- byte stream 
+		- used in writting to an external file 
+		- type sin c# 
+			- fileStream, memorystream, bufferedstream,stream
+	- character stream 
+		- similar to byte stream but instead with characters 
+		- types in c#
+			- textreader, textwritter, streamreader, streamwritter
+	- adding json command for .net
+		- dotnet add package System.Text.Json --version 4.7.2
+
+Variance: a form of polymorphism 
+	- covariance 
+		- we say a substituation is covariant with a type, Foo, if Foo or any other class with a subclass relationship to Foo is valid
+	- contrvariance
+		- we say a substitution is contrvariance with a type Bar, if Bar or any other class with a superclass relationship to Bar is valid
+	- Invariance 
+		- we say a substitution is variant with type Foo, if only types are exactly Foo are valid
+Type Casting 
+	- Boxing (autoboxing)
+		- upcasting, casting to a supertype, implicit type castin g
+	- unboxing 
+		- downcasting 
+		- casting to a subtype
+		- explicit type casting 
+	- Note that types that are similar to each other such as you numerica types can be casted to another similar type
+		- ex. int to double 
+		- if you are casting to a bigger numeric holder than it is implicit 
+		- if you are casting to a smaller numeric holder than it is explicit 
+Type Checking 
+	- is operator 
+		- used to check if the runtime type of an object is compatible iwth the given type or not. 
+		- returns a boolean 
+	- typeof operator 
+		- used to get the type at the compole time
+		- often confused with GetType() 
+			- this method returns the type in c# sense of an object 
+			- GetType(hero) will give you Hero (from class project) 
+
+Pass by Reference 
+	- by default c# is pass by value 
+	- but you can also pass by reference
+
+Delegates: type safe function points in c#
+	- Benifits
+		- Late bindings
+		- Method Chaining - creating pipeline and lifecycle of a framework
+		- Anonymus Methods - they are also foundation of lambda expression 
+		- Events
+		- loose coupling 
+
+	- Types
+		- single-cast 
+		- multi-cast
+		- strongly-typed cast 
+
+Delegate Demo 1:
+	- HerosLib
+		- create two interfaces
+		- IHeroSuperPowers
+			- GetPowers() 
+		- IHeroOperations
+			- DoWork()
+			- ManageLife()
+		- a class to implement the interfaces:
+		- HeroTask:IHeroOperations, IHeroSuperPowers
+	- HerosUi
+		- make cal to operations using delegate
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
